@@ -1,44 +1,36 @@
 package main
 
 import "github.com/gin-gonic/gin"
-import "net/http"
-import "os"
 import "fmt"
-import "encoding/json"
-import "io/ioutil"
-import "strconv"
-
-type Employee struct {
-    ID int
-	FirstName string
-    LastName string
-    AddressId int
-}
-
-type EmployeeAddress struct{
-	EmployeeId int
-	Addres string
-}
-
-var appEnv string
+import "os"
+import "vkodare.com/rest-api-gin/employee"
+import "vkodare.com/rest-api-gin/address"
+import "vkodare.com/rest-api-gin/employeeaddress"
+import "vkodare.com/rest-api-gin/common"
 
 func main() {
-	appEnv = os.Getenv("APP_ENV")
-	fmt.Printf("========APP_ENV: %s ========\n", appEnv)
+	if len(os.Getenv("APP_ENV")) > 0 {
+		common.AppEnv = os.Getenv("APP_ENV")
+	}
+	fmt.Printf("========APP_ENV: %s ========\n", common.AppEnv)
 	
 	router := gin.Default()
-	router.GET("/employees", getEmployeeList)
-	router.GET("/addresses", getAllAddress)
-	router.GET("/employeeaddresses/:id", getEmployeeAddress)
+	router.GET("/employee", employee.GetAll)
+	router.GET("/address", address.GetAll)
+	router.GET("/employeeaddress", employeeaddress.GetAll)
+	
+	router.GET("/employeeaddress/:id", employeeaddress.Get)
+	router.GET("/employee/:id", employee.Get)
+	router.GET("/address/:id", address.Get)
 
 	port := "8080"
-	if appEnv == "prod" {
+	if common.AppEnv == "prod" {
 		port = "8081"
 	}
 	router.Run("localhost:" + port)
 }
 
-func getEmployeeList(c *gin.Context) {
+/*func getEmployeeList(c *gin.Context) {
 	c.IndentedJSON(http.StatusOK, readEmployees())
 }
 
@@ -76,4 +68,4 @@ func readEmployeeAddresses(id int) []EmployeeAddress {
         }
     }
 	return result
-}
+}*/

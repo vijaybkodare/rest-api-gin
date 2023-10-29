@@ -1,0 +1,36 @@
+[
+    {
+        "EmployeeId": 100,
+        "AddresId": 100
+    },
+    {
+        "EmployeeId": 100,
+        "AddresId": 101
+    },
+    {
+        "EmployeeId": 100,
+        "AddresId": 102
+    },
+    
+    {
+        "EmployeeId": 101,
+        "AddresId": 103
+    },
+    {
+        "EmployeeId": 101,
+        "AddresId": 104
+    },
+    {
+        "EmployeeId": 101,
+        "AddresId": 105
+    },
+
+    {
+        "EmployeeId": 102,
+        "AddresId": 106
+    },
+    {
+        "EmployeeId": 102,
+        "AddresId": 107
+    }
+]
