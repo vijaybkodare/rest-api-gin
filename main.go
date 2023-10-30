@@ -3,9 +3,9 @@ package main
 import "github.com/gin-gonic/gin"
 import "fmt"
 import "os"
-import "vkodare.com/rest-api-gin/employee"
-import "vkodare.com/rest-api-gin/address"
-import "vkodare.com/rest-api-gin/employeeaddress"
+import "vkodare.com/rest-api-gin/controller/employee"
+import "vkodare.com/rest-api-gin/controller/address"
+import "vkodare.com/rest-api-gin/controller/employeeaddress"
 import "vkodare.com/rest-api-gin/common"
 
 func main() {
