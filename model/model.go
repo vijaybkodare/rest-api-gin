@@ -1,17 +1,17 @@
 package model
 
 type Employee struct {
-    Id int
+	Id        int
 	FirstName string
-    LastName string
+	LastName  string
 }
 
-type EmployeeAddress struct{
+type EmployeeAddress struct {
 	EmployeeId int
-	AddresId int
+	AddresId   int
 }
 
-type Address struct{
-	Id int
+type Address struct {
+	Id       int
 	Address1 string
 }
